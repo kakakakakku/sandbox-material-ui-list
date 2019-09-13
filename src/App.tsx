@@ -11,7 +11,9 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange } from '@material-ui/core/colors';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,6 +23,9 @@ const useStyles = makeStyles(theme => ({
   },
   orangeAvatar: {
     backgroundColor: deepOrange[500],
+  },
+  purpleAvatar: {
+    backgroundColor: deepPurple[500],
   },
 }));
 
@@ -82,6 +87,22 @@ const App: React.FC = () => {
           </ListItemAvatar>
           <ListItemText primary="List 10 - @kakakakakku" secondary="https://github.com/kakakakakku" />
         </ListItem>
+      </List>
+      <Divider />
+      <List component="nav">
+        {[1, 2, 3].map(value => {
+          return (
+            <ListItem button>
+              <ListItemAvatar>
+                <Avatar className={classes.purpleAvatar}>{value}</Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={`List ${value + 10} - User ${value}`} />
+              <ListItemSecondaryAction>
+                <Checkbox />
+              </ListItemSecondaryAction>
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );

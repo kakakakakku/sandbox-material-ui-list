@@ -9,12 +9,18 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Divider from '@material-ui/core/Divider';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import { deepOrange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
     backgroundColor: '#fffde7',
+  },
+  orangeAvatar: {
+    backgroundColor: deepOrange[500],
   },
 }));
 
@@ -60,6 +66,21 @@ const App: React.FC = () => {
             <CloudDownloadIcon />
           </ListItemIcon>
           <ListItemText primary="List 8 - Download" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List component="nav">
+        <ListItem button>
+          <ListItemAvatar>
+            <Avatar alt="kakakakakku" src="https://pbs.twimg.com/profile_images/604918632460656640/FdOmiWZW_200x200.png" />
+          </ListItemAvatar>
+          <ListItemText primary="List 9 - @kakakakakku" secondary="https://kakakakakku.hatenablog.com/" />
+        </ListItem>
+        <ListItem button>
+          <ListItemAvatar>
+            <Avatar alt="kakakakakku" className={classes.orangeAvatar}>K</Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="List 10 - @kakakakakku" secondary="https://github.com/kakakakakku" />
         </ListItem>
       </List>
     </div>
